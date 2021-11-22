@@ -37,6 +37,7 @@ class Projectile{
             c.fill()
     }
     update(){
+        this.draw()
         this.x = this.x + this.velocity.x
         this.y = this.y + this.velocity.y
     }
@@ -49,26 +50,30 @@ const y = canvas.height/2
 
 const player = new Player(x, y, 30, 'blue') //cords of object
 player.draw()
-
+const projectiles = [] //hold projectiles
+/*
+const projectile = new Projectile(
+    canvas.width / 2,
+    canvas.height / 2,
+    5, 
+    'red', 
+    {
+        x:1,
+        y:1
+    }
+)   31.32
+*/
 function animate() {
     requestAnimationFrame(animate)
-    projectile.draw()
-    projectile.update()
+   // projectile.draw()
+    //projectile.update()
+    projectiles.foreach(Projectile => {
+        Projectile.update()
+    })
 }
 
 
 window.addEventListener('click', (event) =>{
-    const projectile = new Projectile(
-        canvas.width /2,
-        canvas.height /2,
-        event.clientX, 
-        event.clientY, 
-        5, 
-        'red', 
-        {
-            x:1,
-            y:1
-        }
-    )    
+    
     
 })
