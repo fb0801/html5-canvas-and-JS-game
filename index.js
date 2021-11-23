@@ -72,7 +72,7 @@ const projectile2 = new Projectile(
         y:-1
     }
 )
-    const projectiles = [projectile, projectile2] //hold projectiles
+    const projectiles = [] //hold projectiles
 
 function animate() {
     requestAnimationFrame(animate)
@@ -84,7 +84,14 @@ function animate() {
 }
 
 
-window.addEventListener('click', (event) =>{
-    
+addEventListener('click', (event) =>{
+const angle = Math.atan2(event.clientY - canvas.width / 2,
+    event.clientX - canvas.width / 2)
+
+    projectiles.push(new Projectile(canvas.width / 2, canvas.height / 2, 
+        5, 'red', {
+            x:1, 
+            y:1
+        }  ))
     
 })
