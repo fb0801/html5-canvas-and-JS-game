@@ -50,8 +50,7 @@ const y = canvas.height/2
 
 const player = new Player(x, y, 30, 'blue') //cords of object
 player.draw()
-const projectiles = [] //hold projectiles
-/*
+
 const projectile = new Projectile(
     canvas.width / 2,
     canvas.height / 2,
@@ -61,8 +60,20 @@ const projectile = new Projectile(
         x:1,
         y:1
     }
-)   31.32
-*/
+)   
+
+const projectile2 = new Projectile(
+    canvas.width / 2,
+    canvas.height / 2,
+    5, 
+    'green', 
+    {
+        x:-1,
+        y:-1
+    }
+)
+    const projectiles = [projectile, projectile2] //hold projectiles
+
 function animate() {
     requestAnimationFrame(animate)
    // projectile.draw()
