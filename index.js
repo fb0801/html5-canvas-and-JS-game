@@ -49,7 +49,6 @@ const x = canvas.width/2
 const y = canvas.height/2
 
 const player = new Player(x, y, 30, 'blue') //cords of object
-player.draw()
 
 const projectile = new Projectile(
     canvas.width / 2,
@@ -76,8 +75,9 @@ const projectile2 = new Projectile(
 
 function animate() {
     requestAnimationFrame(animate)
-   // projectile.draw()
-    //projectile.update()
+    c.clearRect(0,0, canvas.width, canvas.height)//draw the bullets anc clr screen
+    player.draw()//displays the plater
+
     projectiles.foreach(Projectile => {
         Projectile.update()
     })
@@ -87,11 +87,15 @@ function animate() {
 addEventListener('click', (event) =>{
 const angle = Math.atan2(event.clientY - canvas.width / 2,
     event.clientX - canvas.width / 2)
+const velocity = {
+    x:Math.cos(angle),
+    y:Math.sin(angle)
+}
 
     projectiles.push(new Projectile(canvas.width / 2, canvas.height / 2, 
-        5, 'red', {
-            x:1, 
-            y:1
-        }  ))
+        5, 'red', velocity)
+          )
     
 })
+
+animate()
