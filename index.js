@@ -94,17 +94,17 @@ const projectile2 = new Projectile(
         y:-1
     }
 )
-    const projectiles = [] //hold projectiles 38.35
+    const projectiles = [] //hold projectiles 
 
 function spawnEnemies(){
     setInterval() => {
-        const x
-        const y
-        const radius
+        const x = 0 - radius
+        const y = math.random() * canvas.height
+        const radius = 30
         const color = 'green'
         const angle = Math.atan2(
-            y - canvas.width / 2,
-            x - canvas.width / 2)
+            canvas.height / 2 - y,
+            canvas.width / 2 - x)
         const velocity = {
             x:Math.cos(angle),
             y:Math.sin(angle)
