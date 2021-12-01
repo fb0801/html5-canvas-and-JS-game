@@ -71,7 +71,7 @@ const projectile2 = new Projectile(
         y:-1
     }
 )
-    const projectiles = [] //hold projectiles
+    const projectiles = [] //hold projectiles 38.35
 
 function animate() {
     requestAnimationFrame(animate)
